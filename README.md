@@ -30,7 +30,7 @@ In digital text, we see these as headers.
 1. **Download the plugin**
 
    * Clone or download the repo.
-   * Only commit the `dist` folder and the `manifest.json`   
+   * Only commit the `dist` **(should just be the main.js)** folder and the `manifest.json`   
 files. **Do not include `node_modules`.**
 
 2. **Copy to your vault**
