@@ -30,7 +30,7 @@ In digital text, we see these as headers.
 1. **Download the plugin**
 
    * Clone or download the repo.
-   * Only commit the `dist` **(should just be the main.js)** folder and the `manifest.json`   
+   * Only commit the `dist` folder **(should just be the main.js)** and the `manifest.json`   
 files. **Do not include `node_modules`.**
 
 2. **Copy to your vault**
@@ -44,9 +44,8 @@ files. **Do not include `node_modules`.**
      It should contain:
 
      ```
-     dist/  
+     main.js  
      manifest.json  
-     styles.css  
      ```
 
 3. **Dependencies**
@@ -61,7 +60,7 @@ not for users):
 
 4. **Enable the plugin**
 
-   * Open Obsidian → Settings → Community Plugins → Enable DungeonBuddy.
+   * Open Obsidian → Settings → Community Plugins → Enable DungeonBuddy. (you may need to enable community plugins)
 
 ---
 
