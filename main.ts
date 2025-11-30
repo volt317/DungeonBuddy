@@ -149,8 +149,8 @@ export default class DungeonBuddy extends Plugin {
     const lines = ["---"];
     for (const [key, value] of Object.entries(metadata)) {
       // Quote strings with special characters or spaces
-      if (typeof value === "string" && /[:"'#]/.test(value)) {
-        lines.push(`${key}: "${value.replace(/"/g, '\\"')}"`);
+      if (typeof value === "string") {
+      	lines.push(`${key}: ${JSON.stringify(value)}`);
       } 
       else {
         lines.push(`${key}: ${value}`);

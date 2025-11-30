@@ -34,8 +34,7 @@ In digital text, we see these as headers.
 1. **Download the plugin**
 
    * Clone or download the repo.
-   * Only commit the `dist` folder **(should just be the main.js)** and the `manifest.json`   
-files. **Do not include `node_modules`.**
+   * Find the `main.js` and the `manifest.json` files. **Do not include `node_modules`.**
 
 2. **Copy to your vault**
 
@@ -60,7 +59,7 @@ not for users):
      * Node.js 20+
      * TypeScript 5+
      * Obsidian API types (`@types/obsidian`) if building locally
-   * Users installing via `dist` do **not** need to install anything manually.
+   * Users installing the plugin into the vault do **not** need to install any dependencies.
 
 4. **Enable the plugin**
 
