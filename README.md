@@ -1,5 +1,7 @@
 # README.md
 
+[![CodeQL](https://github.com/volt317/DungeonBuddy/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main)](https://github.com/volt317/DungeonBuddy/actions/workflows/github-code-scanning/codeql)
+
 <p align="center">
   <img src="assets/banner.png" alt="DungeonBuddy Banner"/>
 </p>
