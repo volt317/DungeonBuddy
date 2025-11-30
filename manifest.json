@@ -1,0 +1,12 @@
+{
+  "id": "dungeonbuddy",
+  "name": "DungeonBuddy",
+  "version": "0.1.0",
+  "minAppVersion": "1.0.0",
+  "description": "An Obsidian plugin to help import DnD Markdown files.",
+  "author": "Volt",
+  "authorUrl": "https://yourwebsite.com",
+  "isDesktopOnly": false,
+  "main": "main.js"
+}
+
