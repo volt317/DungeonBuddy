@@ -30,7 +30,7 @@ In digital text, we see these as headers.
 1. **Download the plugin**
 
    * Clone or download the repo.
-   * Only commit the `dist` folder and the `manifest.json` and `styles.css`  
+   * Only commit the `dist` folder and the `manifest.json`   
 files. **Do not include `node_modules`.**
 
 2. **Copy to your vault**
@@ -73,6 +73,8 @@ not for users):
   * `Import Reference Markdown`
   * `Import Homebrew Markdown`
   * `Import Misc Markdown`
+
+* Commands can be accessed with the default shortcut (Ctrl+P)
 
 * To import a markdown file:
 
