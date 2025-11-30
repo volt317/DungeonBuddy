@@ -1,5 +1,9 @@
 # README.md
 
+<p align="center">
+  <img src="assets/banner.png" alt="DungeonBuddy Banner"/>
+</p>
+
 ---
 ## DungeonBuddy Abstract  
 
