@@ -3,9 +3,8 @@
   "name": "DungeonBuddy",
   "version": "0.1.0",
   "minAppVersion": "1.0.0",
-  "description": "A plugin to help import DnD Markdown files.",
+  "description": "Plugin to help TTRPG Entusiasts give markdown content folder structure.",
   "author": "Volt",
   "authorUrl": "https://github.com/volt317",
-  "repo": "volt317/DungeonBuddy",
   "isDesktopOnly": false
 }
