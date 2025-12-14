@@ -27,14 +27,14 @@ export default class DungeonBuddy extends Plugin {
         }
     }
 
-    //Import markdown function for different source types {campagin | reference | homebrew | misc}
+    //Import markdown function for different source types {campaign | reference | homebrew | misc}
     async importMarkdown(sourceType: SourceType) {
       //Save off the source type
       this.currentSourceType = sourceType;
       
       // 1. Prompt user to pick a markdown file
       const file = await this.openFilePicker();
-      if (!file) return;
+      if (!file) return
 
       // 2a. Read the file content
       const filecontent = await this.readFileContent(file);
@@ -136,7 +136,7 @@ export default class DungeonBuddy extends Plugin {
 
     for (const part of parts) {
         currentPath = currentPath ? `${currentPath}/${part}` : part;
-        let folder = plugin.app.vault.getAbstractFileByPath(currentPath);
+        const folder = plugin.app.vault.getAbstractFileByPath(currentPath);
 
         if (!folder) {
             await plugin.app.vault.createFolder(currentPath);
@@ -165,13 +165,13 @@ export default class DungeonBuddy extends Plugin {
     const folderPath = plugin.getFolderPath(seriesName);
 
     // Ensure folder exists
-    let folder = plugin.app.vault.getAbstractFileByPath(folderPath);
+    const folder = plugin.app.vault.getAbstractFileByPath(folderPath);
     if (!folder) {
       await plugin.ensureFolderExists(plugin, folderPath);
     }
 
     for (const note of notes) {
-      const fileNameBase = note.title.replace(/[\/\\?%*:|"<>]/g, "_");
+      const fileNameBase = note.title.replace(/[/\\?%*:|"<>]/g, "_");
       let finalFileName = `${fileNameBase}.md`;
       let counter = 1;
 
