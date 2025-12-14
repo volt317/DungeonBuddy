@@ -45,7 +45,7 @@ In digital text, we see these as headers.
 1. **Download the plugin**
 
    * Clone or download the repo.
-   * Find the `main.js` and the `manifest.json` files. **Do not include `node_modules`.**
+   * Find the `main.js` and the `manifest.json` files. 
 
 2. **Copy to your vault**
 
@@ -131,8 +131,8 @@ If you want to modify or rebuild:
    npm run build
    ```
 
-   This generates the `dist/` folder with `main.js`.
-4. Copy the `dist/` folder to your vault’s plugin folder (see Install).
+   This generates the `main.js`.
+4. Copy the `main.js` and `manifest.json` to your vault’s plugin folder (see Install). **Do not include `node_modules`.**
 
 ---
 

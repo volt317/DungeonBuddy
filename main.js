@@ -83,7 +83,7 @@ var DungeonBuddy = /** @class */ (function (_super) {
             });
         });
     };
-    //Import markdown function for different source types {campagin | reference | homebrew | misc}
+    //Import markdown function for different source types {campaign | reference | homebrew | misc}
     DungeonBuddy.prototype.importMarkdown = function (sourceType) {
         return __awaiter(this, void 0, void 0, function () {
             var file, filecontent, markdown, notes;
@@ -259,7 +259,7 @@ var DungeonBuddy = /** @class */ (function (_super) {
                     case 3:
                         if (!(_i < notes_1.length)) return [3 /*break*/, 16];
                         note = notes_1[_i];
-                        fileNameBase = note.title.replace(/[\/\\?%*:|"<>]/g, "_");
+                        fileNameBase = note.title.replace(/[/\\?%*:|"<>]/g, "_");
                         finalFileName = "".concat(fileNameBase, ".md");
                         counter = 1;
                         // Handle duplicates
