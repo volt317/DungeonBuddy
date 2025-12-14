@@ -5,6 +5,7 @@
 [![Obsidian Plugin](https://img.shields.io/badge/Obsidian-Plugin-7c3aed?logo=obsidian)](#)
 [![CodeQL](https://github.com/volt317/DungeonBuddy/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main)](https://github.com/volt317/DungeonBuddy/actions/workflows/github-code-scanning/codeql)
 [![Build](https://github.com/volt317/DungeonBuddy/actions/workflows/build.yml/badge.svg)](https://github.com/volt317/DungeonBuddy/actions/workflows/build.yml)
+[![Lint](https://github.com/volt317/DungeonBuddy/actions/workflows/lint.yml/badge.svg)](https://github.com/volt317/DungeonBuddy/actions/workflows/lint.yml)
 [![Release](https://img.shields.io/github/v/release/volt317/DungeonBuddy?include_prereleases&label=release)](https://github.com/volt317/DungeonBuddy/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
