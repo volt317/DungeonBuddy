@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.6.1",
+    "eslint": "^9.39.2",
     "obsidian": "^1.10.3",
     "typescript": "^5.1.6",
     "undici-types": "^7.16.0"
