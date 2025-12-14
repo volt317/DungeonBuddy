@@ -1,7 +1,7 @@
-name: Lint
-
 permissions:
   contents: read
+
+name: Lint
 
 on:
   pull_request:
