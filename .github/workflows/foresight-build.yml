@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: 20
       - name: Install Latest (no package lock)
-      - run: npm install --no-package-lock
+        run: npm install --no-package-lock
       - name: Report dependency tree
-      - run: npm ls
+        run: npm ls
       - name: Build project
-      - run: npm run build
+        run: npm run build
