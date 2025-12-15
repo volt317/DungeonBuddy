@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_OPTIONS="--throw-deprecation --trace-warnings"
+  NODE_OPTIONS: "--throw-deprecation --trace-warnings"
 
 jobs:
   build:
