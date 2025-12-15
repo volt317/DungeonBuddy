@@ -155,5 +155,5 @@ MIT
 I will probably add a couple more features, like recursive header value
 extraction and maybe even generalize the tool for general imports.
 
-Please leave a like, or buy me a coffee if this helps.
-DM me for questions.
+Please leave a star, or consider buying me a coffee if this helps. (link in profile)
+Feel free to DM me on Reddit or Discord.
