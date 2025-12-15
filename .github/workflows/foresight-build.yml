@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_OPTIONS: "--throw-deprecation --trace-warnings"
+  NODE_OPTIONS: "--throw-deprecation --trace-warnings --pending-deprecation"
 
 jobs:
   build:
@@ -26,3 +26,5 @@ jobs:
         run: npm ls
       - name: Build project
         run: npm run build -- --noEmit false
+      - name: Runtime smoke test
+        run: timeout 10s node -e "import('./main.js').then(() => process.exit(0))" || true
