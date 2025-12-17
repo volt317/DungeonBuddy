@@ -1,7 +1,7 @@
 {
   "id": "dungeonbuddy",
   "name": "DungeonBuddy",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "minAppVersion": "1.0.0",
   "description": "Plugin to help TTRPG Entusiasts give markdown content folder structure.",
   "author": "Volt",
