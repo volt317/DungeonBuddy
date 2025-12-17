@@ -245,8 +245,9 @@ var DungeonBuddy = /** @class */ (function (_super) {
     DungeonBuddy.prototype.writeNotesToVault = function (plugin, notes, seriesName) {
         return __awaiter(this, void 0, void 0, function () {
             var failed, folderPath, folder, _i, notes_1, note, fileNameBase, finalFileName, counter, filePath, metainfo, headerBlock, file, encoder, buffer, currentBytes, maxBytes, _a, _b, line, lineBytes, e_1;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var _c, _d;
+            return __generator(this, function (_e) {
+                switch (_e.label) {
                     case 0:
                         failed = [];
                         folderPath = plugin.getFolderPath(seriesName);
@@ -254,11 +255,11 @@ var DungeonBuddy = /** @class */ (function (_super) {
                         if (!!folder) return [3 /*break*/, 2];
                         return [4 /*yield*/, plugin.ensureFolderExists(plugin, folderPath)];
                     case 1:
-                        _c.sent();
-                        _c.label = 2;
+                        _e.sent();
+                        _e.label = 2;
                     case 2:
                         _i = 0, notes_1 = notes;
-                        _c.label = 3;
+                        _e.label = 3;
                     case 3:
                         if (!(_i < notes_1.length)) return [3 /*break*/, 16];
                         note = notes_1[_i];
@@ -271,16 +272,16 @@ var DungeonBuddy = /** @class */ (function (_super) {
                             counter++;
                         }
                         filePath = "".concat(folderPath, "/").concat(finalFileName);
-                        _c.label = 4;
+                        _e.label = 4;
                     case 4:
-                        _c.trys.push([4, 14, , 15]);
-                        metainfo = __assign({ series: seriesName, header_level: note.level, title: note.title }, (note.campaign && { campaign: note.campaign }));
+                        _e.trys.push([4, 14, , 15]);
+                        metainfo = __assign({ series: seriesName !== null && seriesName !== void 0 ? seriesName : null, header_level: (_c = note.level) !== null && _c !== void 0 ? _c : null, title: (_d = note.title) !== null && _d !== void 0 ? _d : null }, (note.campaign !== undefined ? { campaign: note.campaign } : {}));
                         headerBlock = this.createFrontMatter(metainfo);
                         // Create file with frontmatter
                         return [4 /*yield*/, plugin.app.vault.create(filePath, headerBlock)];
                     case 5:
                         // Create file with frontmatter
-                        _c.sent();
+                        _e.sent();
                         file = plugin.app.vault.getAbstractFileByPath(filePath);
                         if (!file || !(file instanceof obsidian_1.TFile)) {
                             throw new Error("Failed to get TFile for path: ".concat(filePath));
@@ -290,7 +291,7 @@ var DungeonBuddy = /** @class */ (function (_super) {
                         currentBytes = 0;
                         maxBytes = 64000;
                         _a = 0, _b = note.contentBuffer;
-                        _c.label = 6;
+                        _e.label = 6;
                     case 6:
                         if (!(_a < _b.length)) return [3 /*break*/, 10];
                         line = _b[_a];
@@ -298,14 +299,14 @@ var DungeonBuddy = /** @class */ (function (_super) {
                         if (!(currentBytes + lineBytes > maxBytes)) return [3 /*break*/, 8];
                         return [4 /*yield*/, plugin.app.vault.append(file, buffer.join("\n") + "\n")];
                     case 7:
-                        _c.sent();
+                        _e.sent();
                         buffer = [];
                         currentBytes = 0;
-                        _c.label = 8;
+                        _e.label = 8;
                     case 8:
                         buffer.push(line);
                         currentBytes += lineBytes;
-                        _c.label = 9;
+                        _e.label = 9;
                     case 9:
                         _a++;
                         return [3 /*break*/, 6];
@@ -313,14 +314,14 @@ var DungeonBuddy = /** @class */ (function (_super) {
                         if (!(buffer.length > 0)) return [3 /*break*/, 12];
                         return [4 /*yield*/, plugin.app.vault.append(file, buffer.join("\n") + "\n")];
                     case 11:
-                        _c.sent();
-                        _c.label = 12;
+                        _e.sent();
+                        _e.label = 12;
                     case 12: return [4 /*yield*/, new Promise(function (res) { return setTimeout(res, 20); })];
                     case 13:
-                        _c.sent();
+                        _e.sent();
                         return [3 /*break*/, 15];
                     case 14:
-                        e_1 = _c.sent();
+                        e_1 = _e.sent();
                         failed.push(note.title);
                         console.error("Failed to create note:", note.title, e_1);
                         return [3 /*break*/, 15];

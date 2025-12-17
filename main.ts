@@ -14,8 +14,7 @@ export interface Note {
 type FrontMatterPrimitive =
   | string
   | number
-  | null
-  | string[];
+  | null;
 
 // Type for organizing note meta data
 type NoteFrontMatter = {
@@ -202,10 +201,10 @@ export default class DungeonBuddy extends Plugin {
       try {
       	//Grab the meta info and construct the header block
 	const metainfo: NoteFrontMatter = {
-  	  series: seriesName,
-  	  header_level: note.level,
-  	  title: note.title,
-  	  ...(note.campaign && { campaign: note.campaign })
+  	  series: seriesName ?? null,
+  	  header_level: note.level ?? null,
+  	  title: note.title ?? null,
+  	  ...(note.campaign !== undefined ? { campaign: note.campaign } : {})
         };
         const headerBlock = this.createFrontMatter(metainfo)
       
