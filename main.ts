@@ -9,13 +9,29 @@ export interface Note {
   campaign?: string;
 }
 
+// Primitive for type constraints
+// Needed to avoid use of any in indeterminite inputs
+type FrontMatterPrimitive =
+  | string
+  | number
+  | null
+  | string[];
+
+// Type for organizing note meta data
+type NoteFrontMatter = {
+  series: string;
+  header_level: number;
+  title: string;
+  campaign?: string;
+};
+
 //Source types that can be parsed
 export type SourceType = "campaign" | "reference" | "homebrew" | "misc";
 
 //Main plugin class
 export default class DungeonBuddy extends Plugin {
     currentSourceType: SourceType | null = null;
-    async onload() {
+    onload() {
         const sources: SourceType[] = ["campaign", "reference", "homebrew", "misc"];
 
         for (const type of sources) {
@@ -40,7 +56,7 @@ export default class DungeonBuddy extends Plugin {
       const filecontent = await this.readFileContent(file);
 
       // 2b. Normalize if needed
-      const markdown = await this.normalizeLineEndings(filecontent);
+      const markdown = this.normalizeLineEndings(filecontent);
 
       // 3. Split into notes based on sourceType
       const notes = this.splitMarkdownIntoNotes(markdown);
@@ -145,7 +161,7 @@ export default class DungeonBuddy extends Plugin {
   }
 	
   // Helper to create YAML front matter safely
-  createFrontMatter(metadata: Record<string, any>): string {
+  createFrontMatter(metadata: Record<string, FrontMatterPrimitive>): string {
     const lines = ["---"];
     for (const [key, value] of Object.entries(metadata)) {
       // Quote strings with special characters or spaces
@@ -185,22 +201,23 @@ export default class DungeonBuddy extends Plugin {
 
       try {
       	//Grab the meta info and construct the header block
-      	const metainfo = { series: seriesName,
-	header_level: note.level,
-	title: note.title      	
-      	};
-      	const headerBlock = this.createFrontMatter(metainfo)
+	const metainfo: NoteFrontMatter = {
+  	  series: seriesName,
+  	  header_level: note.level,
+  	  title: note.title,
+  	  ...(note.campaign && { campaign: note.campaign })
+        };
+        const headerBlock = this.createFrontMatter(metainfo)
       
         // Create file with frontmatter
-        await plugin.app.vault.create(filePath, headerBlock
-        );
+        await plugin.app.vault.create(filePath, headerBlock);
         // Get file object
         const file = plugin.app.vault.getAbstractFileByPath(filePath);
         if (!file || !(file instanceof TFile)) {
           throw new Error(`Failed to get TFile for path: ${filePath}`);
         }
       
-      	//Stream buffer for our text
+        //Stream buffer for our text
         const encoder = new TextEncoder();
         let buffer: string[] = [];
         let currentBytes = 0;
@@ -218,7 +235,6 @@ export default class DungeonBuddy extends Plugin {
           buffer.push(line);
           currentBytes += lineBytes;
         }
-
         // Flush remaining lines
         if (buffer.length > 0) {
           await plugin.app.vault.append(file, buffer.join("\n") + "\n");

@@ -14,6 +14,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -62,26 +73,20 @@ var DungeonBuddy = /** @class */ (function (_super) {
         return _this;
     }
     DungeonBuddy.prototype.onload = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var sources, _loop_1, this_1, _i, sources_1, type;
-            var _this = this;
-            return __generator(this, function (_a) {
-                sources = ["campaign", "reference", "homebrew", "misc"];
-                _loop_1 = function (type) {
-                    this_1.addCommand({
-                        id: "import-".concat(type),
-                        name: "Import ".concat(type.charAt(0).toUpperCase() + type.slice(1), " Markdown"),
-                        callback: function () { return _this.importMarkdown(type); }
-                    });
-                };
-                this_1 = this;
-                for (_i = 0, sources_1 = sources; _i < sources_1.length; _i++) {
-                    type = sources_1[_i];
-                    _loop_1(type);
-                }
-                return [2 /*return*/];
+        var _this = this;
+        var sources = ["campaign", "reference", "homebrew", "misc"];
+        var _loop_1 = function (type) {
+            this_1.addCommand({
+                id: "import-".concat(type),
+                name: "Import ".concat(type.charAt(0).toUpperCase() + type.slice(1), " Markdown"),
+                callback: function () { return _this.importMarkdown(type); }
             });
-        });
+        };
+        var this_1 = this;
+        for (var _i = 0, sources_1 = sources; _i < sources_1.length; _i++) {
+            var type = sources_1[_i];
+            _loop_1(type);
+        }
     };
     //Import markdown function for different source types {campaign | reference | homebrew | misc}
     DungeonBuddy.prototype.importMarkdown = function (sourceType) {
@@ -100,13 +105,11 @@ var DungeonBuddy = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.readFileContent(file)];
                     case 2:
                         filecontent = _a.sent();
-                        return [4 /*yield*/, this.normalizeLineEndings(filecontent)];
-                    case 3:
-                        markdown = _a.sent();
+                        markdown = this.normalizeLineEndings(filecontent);
                         notes = this.splitMarkdownIntoNotes(markdown);
                         // 4. Write notes to vault
                         return [4 /*yield*/, this.writeNotesToVault(this, notes, (file.name.replace(/\.[^/.]+$/, "")))];
-                    case 4:
+                    case 3:
                         // 4. Write notes to vault
                         _a.sent();
                         new obsidian_1.Notice("Imported ".concat(notes.length, " notes from ").concat(file.name));
@@ -271,10 +274,7 @@ var DungeonBuddy = /** @class */ (function (_super) {
                         _c.label = 4;
                     case 4:
                         _c.trys.push([4, 14, , 15]);
-                        metainfo = { series: seriesName,
-                            header_level: note.level,
-                            title: note.title
-                        };
+                        metainfo = __assign({ series: seriesName, header_level: note.level, title: note.title }, (note.campaign && { campaign: note.campaign }));
                         headerBlock = this.createFrontMatter(metainfo);
                         // Create file with frontmatter
                         return [4 /*yield*/, plugin.app.vault.create(filePath, headerBlock)];
