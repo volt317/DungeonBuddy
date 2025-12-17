@@ -157,3 +157,6 @@ extraction and maybe even generalize the tool for general imports.
 
 Please leave a star, or consider buying me a coffee if this helps. (link in profile)
 Feel free to DM me on Reddit or Discord.
+
+## Support
+[☕ Buy me a coffee](https://www.buymeacoffee.com/volt317)
